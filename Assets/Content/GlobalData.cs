@@ -1,4 +1,5 @@
 ﻿using Content.Controller;
+using Content.Models;
 using UnityEngine;
 
 namespace Content
@@ -8,8 +9,10 @@ namespace Content
         public static GlobalData Data { get; private set; }
         
         //Controllers
-        public Controller_Rendering RenderingController { get; set; }
-        
+        public ArtworkDatabase Database;
+        public Controller_CanvasRendering RenderingController { get; set; }
+        public Controller_SceneLoader SceneLoaderController { get; set; }
+
         void OnEnable()
         {
             DontDestroyOnLoad(gameObject);

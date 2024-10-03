@@ -1,4 +1,3 @@
-using Content.Models;
 using UnityEngine;
 
 namespace Content.Handler
@@ -6,35 +5,38 @@ namespace Content.Handler
     public class Handle_VisionRange : MonoBehaviour
     {
         [SerializeField] private bool ActiveRaycast;
-        private ArtPiece _lastInspectedArtPiece;
         
         void FixedUpdate()
         {
-            if(!ActiveRaycast) return;
+            //if(!ActiveRaycast) return;
 
-            var main_camera = Camera.main.transform;
+            var mainCamera = Camera.main.transform;
+            Ray ray = new Ray(mainCamera.position, mainCamera.forward);
+            var controller = GlobalData.Data.RenderingController;
             
-            Ray ray = new Ray(main_camera.position, main_camera.forward);
-
             if (Physics.Raycast(ray, out var hit, 5f))
             {
-                if(!hit.collider.CompareTag("Art")) return;
+                if (!hit.collider.CompareTag("Art"))
+                {
+                    controller.ArtInfo.HideArtDetails();;
+                    return;
+                }
                 
                 Handler_ArtInfo artPiece = hit.transform.parent.GetComponent<Handler_ArtInfo>();
                 
                 if (artPiece != null)
                 {
-                    GlobalData.Data.RenderingController.ArtInfo.ShowArtDetails(artPiece.Art, artPiece.GetInfoPosition_WorldSpace());
-                    GlobalData.Data.RenderingController.SetCurrentInspectedArtwork(artPiece.Art);
+                    controller.ArtInfo.ShowArtDetails(artPiece.Artwork, artPiece.GetInfoPosition_WorldSpace());
+                    controller.SetCurrentInspectedArtwork(artPiece.Artwork);
                 }
                 else
                 {
-                    GlobalData.Data.RenderingController.ArtInfo.HideArtDetails();
+                    controller.ArtInfo.HideArtDetails();
                 }
             }
             else
             {
-                GlobalData.Data.RenderingController.ArtInfo.HideArtDetails();
+                controller.ArtInfo.HideArtDetails();
             }
             
         }
@@ -42,6 +44,7 @@ namespace Content.Handler
         public void ActivateFieldOfView(bool value)
         {
             ActiveRaycast = value;
+            //if(!value) GlobalData.Data.RenderingController.ArtInfo.HideArtDetails();
         }
     }
 }

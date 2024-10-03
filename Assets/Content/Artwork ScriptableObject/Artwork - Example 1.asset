@@ -12,7 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59914a2c5a611654da5fc1fcecd415d6, type: 3}
   m_Name: Artwork - Example 1
   m_EditorClassIdentifier: 
+  Canvas: {fileID: 2800000, guid: a730c715eb12ede4483c72e8ec9c40da, type: 3}
+  Size: {x: 90, y: 70}
   Title: La noche estrellada
   Artist: Vincent Van Gogh
-  Description: 
-  ExtendedDescription: 
+  Description: "Pintado en junio de 1889, representa la vista desde la ventana orientada
+    al este de su habitaci\xF3n de asilo en Saint-R\xE9my-de-Provence, justo antes
+    del amanecer, con la adici\xF3n de un pueblo imaginario."
+  ExtendedDescription: "La noche estrellada fue pintada por Van Gogh durante el d\xEDa
+    en el estudio de la planta baja del manicomio de Saint-Paul-de Mausole. La vista
+    ha sido identificada como la de la ventana de su dormitorio, orientada al este,
+    una vista de la que Van Gogh pint\xF3 variaciones. \"A trav\xE9s de la ventana
+    con barrotes de hierro\", le escribi\xF3 a su hermano, Theo, alrededor del 23
+    de mayo de 1889, \"puedo ver un cuadrado de trigo cerrado (...) sobre el cual,
+    por la ma\xF1ana, veo salir el sol en todo su esplendor.  Van Gogh represent\xF3
+    la vista en diferentes momentos del d\xEDa , incluido el amanecer, la salida
+    de la luna, los d\xEDas llenos de sol, los d\xEDas nublados, los d\xEDas ventosos
+    y un d\xEDa con lluvia. Si bien el personal del hospital no permiti\xF3 que Van
+    Gogh pintara en su dormitorio, all\xED pudo hacer bocetos en tinta o carboncillo
+    sobre papel; eventualmente, basar\xEDa variaciones m\xE1s nuevas en versiones
+    anteriores. El elemento pict\xF3rico que une todas estas pinturas es la l\xEDnea
+    diagonal procedente de la derecha que representa las colinas bajas y onduladas
+    de las monta\xF1as Alpilles. En varias versiones, los cipreses son visibles m\xE1s
+    all\xE1 de la pared del fondo que encierra el campo de trigo. Van Gogh ampli\xF3
+    la vista en seis de estas pinturas, sobre todo en Campo de trigo con cipreses
+    y La noche estrellada, que acercan los \xE1rboles al plano de la imagen"

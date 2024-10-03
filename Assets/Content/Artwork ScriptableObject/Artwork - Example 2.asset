@@ -12,7 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59914a2c5a611654da5fc1fcecd415d6, type: 3}
   m_Name: Artwork - Example 2
   m_EditorClassIdentifier: 
-  Title: Mujer con abanico
+  Canvas: {fileID: 2800000, guid: a4063d50c651bc1449b2f9266c035f4c, type: 3}
+  Size: {x: 185, y: 185}
+  Title: El beso
   Artist: Gustav Klimt
-  Description: 
-  ExtendedDescription: 
+  Description: "Oleo con laminillas de oro y esta\xF1o sobre lienzo de 180 x 180
+    cent\xEDmetros, realizado entre 1907-08.\u200BEsta obra, que sigue los c\xE1nones
+    del Simbolismo, es una tela con decoraciones y mosaicos sobre un fondo dorado."
+  ExtendedDescription: "El beso (original en alem\xE1n: Der Kuss) es una obra del
+    pintor austr\xEDaco Gustav Klimt y probablemente su obra m\xE1s conocida. Es
+    un \xF3leo con laminillas de oro y esta\xF1o sobre lienzo de 180 x 180 cent\xEDmetros,
+    realizado entre 1907-08.  Esta obra, que sigue los c\xE1nones del Simbolismo,
+    es una tela con decoraciones y mosaicos sobre un fondo dorado. Est\xE1 expuesta
+    en la \xD6sterreichische Galerie Belvedere de Viena. Normalmente las obras de
+    Klimt creaban esc\xE1ndalos y eran criticadas como \"pornograf\xEDa\" y por ser
+    \"excesivamente pervertidas\". Las obras pusieron a Klimt como un \"enfant terrible\"
+    por sus opiniones anti-autoritarias y anti-populistas sobre el arte. \xC9l escribi\xF3:
+    \"Si no se puede complacer a todo el mundo con sus obras y su arte, por favor
+    complace a unos pocos\". Por el contrario, El beso fue recibida con entusiasmo,
+    y de inmediato no encontr\xF3 un comprador."

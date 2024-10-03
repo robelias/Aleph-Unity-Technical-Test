@@ -1,4 +1,3 @@
-using System;
 using System.Text;
 using Content.Models;
 using TMPro;
@@ -16,8 +15,8 @@ namespace Content.UIView
         [SerializeField] private  TextMeshProUGUI  ExtendedInfo_Text;
 
         private bool _isViewActive;
-        private ArtPiece _currentPiece;
-        
+        private Artwork _currentPiece;
+
         void Start()
         {
             ArtInfoWidget.gameObject.SetActive(false);
@@ -27,17 +26,11 @@ namespace Content.UIView
         {
             if (Input.GetKeyDown(KeyCode.R) && !ArtInfoPanel.activeInHierarchy)
             {
-                var last_artwork = GlobalData.Data.RenderingController.GetLastInspectedArtwork();
-                if(last_artwork == null) return;
+                var lastArtwork = GlobalData.Data.RenderingController.GetLastInspectedArtwork();
+                if(lastArtwork == null) return;
                 
-                _currentPiece = last_artwork;
+                _currentPiece = lastArtwork;
                 ShowArtExtendedDetails();
-            }
-            
-            if (Input.GetKeyDown(KeyCode.Escape) && ArtInfoPanel.activeInHierarchy)
-            {
-                ArtInfoPanel.SetActive(false);
-                if(_isViewActive) ArtInfoWidget.gameObject.SetActive(true);
             }
             
             if(!_isViewActive) return;
@@ -48,34 +41,21 @@ namespace Content.UIView
                 ShowArtExtendedDetails();
                 ArtInfoPanel.SetActive(true);
             }
+            
+            if (Input.GetKeyDown(KeyCode.F) && !ArtInfoPanel.activeInHierarchy && _currentPiece != null)
+            {
+                GlobalData.Data.Database.AddFavorite(_currentPiece);
+            }
         }
 
-        void ShowArtExtendedDetails()
-        {
-            ArtInfoWidget.gameObject.SetActive(false);
-            ArtInfoPanel.SetActive(true);
-            
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Title: <b><color=orange>{_currentPiece.Title}</color></b>");
-            sb.AppendLine($"Artist: <b>{_currentPiece.Artist}</b>");
-            sb.AppendLine($"Description: {_currentPiece.ExtendedDescription}");
-            
-            ExtendedInfo_Text.text = sb.ToString();
-        }
-        
-        public void ShowArtDetails(ArtPiece artPiece, Vector3 boundPositionWs)
+        public void ShowArtDetails(Artwork artPiece, Vector3 boundPositionWs)
         {
             if(ArtInfoPanel.activeInHierarchy) return;
             
             _currentPiece = artPiece;
             ArtInfoWidget.gameObject.SetActive(true);
             
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"<b><color=orange>Title: {artPiece.Title}</color></b>");
-            sb.AppendLine($"Artist: <b>{artPiece.Artist}</b>");
-            sb.AppendLine($"Description: {artPiece.Description}");
-            
-            DefaultInfo_Text.text = sb.ToString();
+            DefaultInfo_Text.text = CreateDetail(artPiece);
             _isViewActive = true;
             
             LocateWidgetPos(boundPositionWs);
@@ -87,18 +67,35 @@ namespace Content.UIView
             _isViewActive = false;
         }
         
+        void ShowArtExtendedDetails()
+        {
+            ArtInfoWidget.gameObject.SetActive(false);
+            GlobalData.Data.RenderingController.OpenWindow(ArtInfoPanel);
+            ExtendedInfo_Text.text = CreateDetail(_currentPiece, true);
+        }
+        
         void LocateWidgetPos(Vector3 boundPositionWs)
         {
-            Vector2 viewport_position = Camera.main.WorldToViewportPoint(boundPositionWs);
+            Vector2 viewportPosition = Camera.main.WorldToViewportPoint(boundPositionWs);
                 
-            Vector2 size_delta = CanvasPanel.sizeDelta;
+            Vector2 sizeDelta = CanvasPanel.sizeDelta;
                 
-            var canvas_position = new Vector2(
-                ((viewport_position.x * size_delta.x) - (size_delta.x * 0.5f)),
-                ((viewport_position.y * size_delta.y) - (size_delta.y * 0.5f))
+            var canvasPosition = new Vector2(
+                ((viewportPosition.x * sizeDelta.x) - (sizeDelta.x * 0.5f)),
+                ((viewportPosition.y * sizeDelta.y) - (sizeDelta.y * 0.5f))
             );
 
-            ArtInfoWidget.anchoredPosition = canvas_position;
+            ArtInfoWidget.anchoredPosition = canvasPosition;
+        }
+
+        string CreateDetail(Artwork piece, bool isExtended = false)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"<b>Title: <color=green>{piece.Title}</color></b>");
+            sb.AppendLine($"<b>Artist: {piece.Artist}</b>");
+            sb.AppendLine($"<b>Description:</b> {(isExtended ? piece.ExtendedDescription : piece.Description)}");
+            
+            return sb.ToString();
         }
     }
 }

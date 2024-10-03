@@ -35,7 +35,7 @@ namespace Content.Models
         {
             if (Canvas != null)
             {
-                CanvasData = Canvas.EncodeToJPG();
+                CanvasData = Canvas.EncodeToJPG(50);
             }
         }
     }
@@ -136,7 +136,7 @@ namespace Content.Models
 
                     if (loadedArtworks == null)
                     {
-                        Debug.LogError("Error: No se pudo deserializar la base de datos de obras de arte.");
+                        Debug.LogError("Error: Failed to deserialize artwork database.");
                         return null;
                     }
 
@@ -148,9 +148,7 @@ namespace Content.Models
                         }
                         catch (Exception texEx)
                         {
-                            Debug.LogError($"Error al cargar la textura para la obra con ID {artwork.ID}: {texEx.Message}");
-                            // Puedes decidir continuar o detener el proceso, según el caso
-                            // En este ejemplo, continuamos con las siguientes obras
+                            Debug.LogError($"Error loading texture for artwork with ID {artwork.ID}: {texEx.Message}");
                         }
                     }
 
@@ -158,16 +156,16 @@ namespace Content.Models
                 }
                 else
                 {
-                    Debug.LogWarning("No se encontró la base de datos de obras de arte.");
+                    Debug.LogWarning("The artwork database was not found.");
                 }
             }
             catch (IOException ioEx)
             {
-                Debug.LogError($"Error de E/S al leer la base de datos: {ioEx.Message}");
+                Debug.LogError($"Error reading database: {ioEx.Message}");
             }
             catch (Exception ex)
             {
-                Debug.LogError($"Error inesperado al cargar la base de datos: {ex.Message}");
+                Debug.LogError($"Unexpected error loading database: {ex.Message}");
             }
 
             return null;

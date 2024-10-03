@@ -2029,7 +2029,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 692036409542434440, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
       propertyPath: m_Name
-      value: Art Piece - El beso
+      value: Art Piece - Liberty Leading the People
+      objectReference: {fileID: 0}
+    - target: {fileID: 692036409542434441, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
+      propertyPath: ArtworkID
+      value: e392f65a-3539-46bb-b289-bc7fdc55639c
       objectReference: {fileID: 0}
     - target: {fileID: 692036409542434443, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
       propertyPath: m_RootOrder
@@ -2529,7 +2533,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 692036409542434440, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
       propertyPath: m_Name
-      value: Art Piece - El beso
+      value: Art Piece - The Last Supper
+      objectReference: {fileID: 0}
+    - target: {fileID: 692036409542434441, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
+      propertyPath: ArtworkID
+      value: a894f541-1235-485d-ad6d-324f1cd6fafb
       objectReference: {fileID: 0}
     - target: {fileID: 692036409542434443, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
       propertyPath: m_RootOrder
@@ -2625,7 +2633,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 692036409542434440, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
       propertyPath: m_Name
-      value: Art Piece - El beso
+      value: Art Piece - Las Meninas
+      objectReference: {fileID: 0}
+    - target: {fileID: 692036409542434441, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
+      propertyPath: ArtworkID
+      value: fc23d550-63e4-4a09-a14e-7b3d9ffa7w1t
       objectReference: {fileID: 0}
     - target: {fileID: 692036409542434443, guid: 39489b3a214a5b244b6db291e223346c, type: 3}
       propertyPath: m_RootOrder

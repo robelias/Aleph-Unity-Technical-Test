@@ -86,7 +86,10 @@ namespace Content.Handler
         [ContextMenu("Rename GameObject by Selected Art")]
         private void RenameGameObject()
         {
-            gameObject.name = $"Art Piece - {Artwork.Title}";
+            var database = Resources.Load<ArtworkDatabase>("Artwork-Initialization");
+            
+            var artworkTemp = database.GetArtwork(ArtworkID);
+            gameObject.name = $"Art Piece - {artworkTemp.Title}";
         }
     }
 }

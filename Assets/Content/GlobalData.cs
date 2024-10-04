@@ -1,8 +1,8 @@
-﻿using Content.Controller;
-using Content.Models;
+﻿using Gallery.Content.Controller;
+using Gallery.Content.DataModels;
 using UnityEngine;
 
-namespace Content
+namespace Gallery.Content
 {
     public class GlobalData: MonoBehaviour
     {

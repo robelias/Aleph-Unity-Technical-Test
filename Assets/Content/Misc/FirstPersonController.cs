@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Content.Misc
+namespace Gallery.Content.Misc
 {
     public class FirstPersonController : MonoBehaviour
     {
@@ -19,7 +19,9 @@ namespace Content.Misc
 
         void Update()
         {
-            var current_transform = transform;
+            if (Camera.main == null) return;
+            
+            var currentTransform = transform;
             
             var rotationY = Input.GetAxis("Mouse X") * MouseSensitivity;
             transform.Rotate(0, rotationY, 0);
@@ -31,7 +33,7 @@ namespace Content.Misc
             var moveX = Input.GetAxis("Horizontal") * MoveSpeed;
             var moveZ = Input.GetAxis("Vertical") * MoveSpeed;
 
-            _moveDirection = current_transform.right * moveX + current_transform.forward * moveZ;
+            _moveDirection = currentTransform.right * moveX + currentTransform.forward * moveZ;
             _characterController.Move(_moveDirection * Time.deltaTime);
         }
     }

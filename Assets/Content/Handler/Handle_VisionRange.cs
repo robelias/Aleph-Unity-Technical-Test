@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Content.Handler
+namespace Gallery.Content.Handler
 {
     public class Handle_VisionRange : MonoBehaviour
     {
@@ -10,6 +10,8 @@ namespace Content.Handler
         {
             //if(!ActiveRaycast) return;
 
+            if (Camera.main == null) return;
+
             var mainCamera = Camera.main.transform;
             Ray ray = new Ray(mainCamera.position, mainCamera.forward);
             var controller = GlobalData.Data.RenderingController;
@@ -18,7 +20,7 @@ namespace Content.Handler
             {
                 if (!hit.collider.CompareTag("Art"))
                 {
-                    controller.ArtInfo.HideArtDetails();;
+                    controller.ArtInfo.HideArtDetails();
                     return;
                 }
                 
@@ -38,13 +40,12 @@ namespace Content.Handler
             {
                 controller.ArtInfo.HideArtDetails();
             }
-            
         }
 
         public void ActivateFieldOfView(bool value)
         {
             ActiveRaycast = value;
-            //if(!value) GlobalData.Data.RenderingController.ArtInfo.HideArtDetails();
+            if(!value) GlobalData.Data.RenderingController.ArtInfo.HideArtDetails();
         }
     }
 }

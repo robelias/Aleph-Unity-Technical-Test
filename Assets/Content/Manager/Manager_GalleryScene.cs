@@ -1,7 +1,7 @@
-﻿using Content.Controller;
+﻿using Gallery.Content.Controller;
 using UnityEngine;
 
-namespace Content.Manager
+namespace Gallery.Content.Manager
 {
     public class Manager_GalleryScene : MonoBehaviour
     {

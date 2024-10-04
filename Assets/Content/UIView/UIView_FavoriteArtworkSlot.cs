@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Content.UIView
+namespace Gallery.Content.UIView
 {
     public class UIView_FavoriteArtworkSlot : MonoBehaviour
     {

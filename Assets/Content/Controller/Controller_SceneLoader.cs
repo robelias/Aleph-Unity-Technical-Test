@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Content.Controller
+namespace Gallery.Content.Controller
 {
     public class Controller_SceneLoader : MonoBehaviour
     {

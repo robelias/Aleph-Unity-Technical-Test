@@ -1,4 +1,4 @@
-namespace Content.Misc
+namespace Gallery.Content.Misc
 {
     public static class DimensionConverter
     {

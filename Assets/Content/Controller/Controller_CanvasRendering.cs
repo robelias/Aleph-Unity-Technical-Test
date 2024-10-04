@@ -1,8 +1,8 @@
-﻿using Content.Models;
-using Content.UIView;
+﻿using Gallery.Content.DataModels;
+using Gallery.Content.UIView;
 using UnityEngine;
 
-namespace Content.Controller
+namespace Gallery.Content.Controller
 {
     public class Controller_CanvasRendering : MonoBehaviour
     {
@@ -34,10 +34,7 @@ namespace Content.Controller
         {
             LastInspectedShortcutView.SetActive(_lastArtworkDetails != null);
             
-            if (_isWindowOpen && Input.GetKeyDown(KeyCode.Escape))
-            {
-                CloseWindow();
-            }
+            if (_isWindowOpen && Input.GetKeyDown(KeyCode.Escape)) CloseWindow();
         }
         
         public void SetCurrentInspectedArtwork(Artwork details)

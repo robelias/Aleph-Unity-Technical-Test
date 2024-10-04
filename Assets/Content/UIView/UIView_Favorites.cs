@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Content.UIView
+namespace Gallery.Content.UIView
 {
     public class UIView_Favorites : MonoBehaviour
     {

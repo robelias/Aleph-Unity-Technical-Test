@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-namespace Content.UIView
+namespace Gallery.Content.UIView
 {
     public class UIView_GalleriesSelection: MonoBehaviour
     {
@@ -18,13 +19,13 @@ namespace Content.UIView
             
             if (Input.GetKeyDown(KeyCode.Escape)) _isWindowOpen = false;
 
-            if (_isWindowOpen && Input.GetKeyDown(KeyCode.Alpha1))
+            if (_isWindowOpen && Input.GetKeyDown(KeyCode.Alpha1) && SceneManager.GetActiveScene().buildIndex != 1)
             {
                 GlobalData.Data.RenderingController.CloseWindow();
                 GlobalData.Data.SceneLoaderController.LoadScene(1);
             }
             
-            if (_isWindowOpen && Input.GetKeyDown(KeyCode.Alpha2))
+            if (_isWindowOpen && Input.GetKeyDown(KeyCode.Alpha2) && SceneManager.GetActiveScene().buildIndex != 2)
             {
                 GlobalData.Data.RenderingController.CloseWindow();
                 GlobalData.Data.SceneLoaderController.LoadScene(2);

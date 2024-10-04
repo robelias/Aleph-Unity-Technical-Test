@@ -1,9 +1,9 @@
-﻿using Content.Controller;
-using Content.Misc;
-using Content.Models;
+﻿using Gallery.Content.Builders;
+using Gallery.Content.Controller;
+using Gallery.Content.DataModels;
 using UnityEngine;
 
-namespace Content.Handler
+namespace Gallery.Content.Handler
 {
     public class Handler_ArtInfo : MonoBehaviour
     {
@@ -70,7 +70,7 @@ namespace Content.Handler
             var artworkRenderer = _artCanvas.GetComponent<Renderer>();
             if (artworkRenderer == null)
             {
-                Debug.LogError("El objeto de la obra de arte no tiene un componente Renderer.");
+                Debug.LogError("The object does not have a Renderer component.");
                 return;
             }
 

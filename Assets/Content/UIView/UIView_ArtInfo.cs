@@ -1,9 +1,9 @@
 using System.Text;
-using Content.Models;
+using Gallery.Content.DataModels;
 using TMPro;
 using UnityEngine;
 
-namespace Content.UIView
+namespace Gallery.Content.UIView
 {
     public class UIView_ArtInfo : MonoBehaviour
     {
@@ -76,6 +76,8 @@ namespace Content.UIView
         
         void LocateWidgetPos(Vector3 boundPositionWs)
         {
+            if (Camera.main == null) return;
+
             Vector2 viewportPosition = Camera.main.WorldToViewportPoint(boundPositionWs);
                 
             Vector2 sizeDelta = CanvasPanel.sizeDelta;

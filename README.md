@@ -3,7 +3,7 @@ The camera is located in a gallery where you can move freely around it using the
 
 Other shortcut actions are: 
 
-• **R:** To view the last inspected piece of art, provided that you have already seen the details of one.
+• **R:** To view the last inspected artwork, provided that you have already seen the details of one.
 
 • **Tab**: To open the gallery selector and to travel between them you can use the [1] and [2] buttons.
 
